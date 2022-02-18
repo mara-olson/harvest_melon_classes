@@ -31,12 +31,14 @@ class MelonType:
         self.code = new_code
         # Fill in the rest
 
+    def __repr__(self):
+        return self.name
 
 def make_melon_types():
     """Returns a list of current melon types."""
 # code, first_harvest, color, is_seedless, is_bestseller, name
     all_melon_types = []
-    Muskmelon = MelonType(
+    muskmelon = MelonType(
         "musk",
         1998,
         "green",
@@ -44,8 +46,10 @@ def make_melon_types():
         True,
         "Muskmelon"
     )
+    muskmelon.add_pairing("mint")
+    all_melon_types.append(muskmelon)
 
-    Casaba = MelonType(
+    casaba = MelonType(
         "cas",
         2003,
         "orange",
@@ -53,8 +57,11 @@ def make_melon_types():
         False,
         "Casaba"
     )
-    
-    Crenshaw = MelonType(
+    casaba.add_pairing("strawberries")
+    casaba.add_pairing("mint")
+    all_melon_types.append(casaba)
+
+    crenshaw = MelonType(
         "cren",
         1996,
         "green",
@@ -62,18 +69,21 @@ def make_melon_types():
         False,
         "Crenshaw"
     )
+    crenshaw.add_pairing("prosciutto")
+    all_melon_types.append(crenshaw)
 
-    Yellow_watermelon = MelonType(
+    yellow_watermelon = MelonType(
         "yw",
         2013,
         "yellow",
         True,
         True,
-        ""
+        "Yellow Watermelon"
     )
+    yellow_watermelon.add_pairing("ice cream")
+    all_melon_types.append(yellow_watermelon)
 
     # Fill in the rest
-
     return all_melon_types
 
 
@@ -81,14 +91,25 @@ def print_pairing_info(melon_types):
     """Prints information about each melon type's pairings."""
 
     # Fill in the rest
-
+    for melon in melon_types:
+        print(f"{melon.name} pairs with")
+        for item in melon.pairings:
+            print(f"- {item}")
+        print("")
 
 def make_melon_type_lookup(melon_types):
     """Takes a list of MelonTypes and returns a dictionary of melon type by code."""
 
     # Fill in the rest
+    melon_dict = {}
+    for melon in melon_types:
+        melon_dict[melon.code] = melon
+    
+    print(melon_dict)
 
 
+make_melon_type_lookup(make_melon_types())
+print_pairing_info(make_melon_types())
 ############
 # Part 2   #
 ############
