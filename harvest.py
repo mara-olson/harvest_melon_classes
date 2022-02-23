@@ -31,8 +31,8 @@ class MelonType:
         self.code = new_code
         # Fill in the rest
 
-    def __repr__(self):
-        return self.name
+    # def __repr__(self):
+    #     return self.name
 
 def make_melon_types():
     """Returns a list of current melon types."""
@@ -84,6 +84,7 @@ def make_melon_types():
     all_melon_types.append(yellow_watermelon)
 
     # Fill in the rest
+    # print(all_melon_types)
     return all_melon_types
 
 
@@ -103,12 +104,15 @@ def make_melon_type_lookup(melon_types):
     # Fill in the rest
     melon_dict = {}
     for melon in melon_types:
+        # print(melon_types)
         melon_dict[melon.code] = melon
     
-    print(melon_dict)
+    # print(melon_dict)
+    return melon_dict
 
 
-# make_melon_type_lookup(make_melon_types())
+
+make_melon_type_lookup(make_melon_types())
 # print_pairing_info(make_melon_types())
 
 
@@ -136,7 +140,8 @@ class Melon:
             return True
         else:
             return False
-
+    # def __repr__(self):
+    #     return self.shape_rate
 
 def make_melons():
     """Returns a list of Melon objects."""
@@ -165,4 +170,5 @@ def get_sellability_report(melons):
             sellability = 'NOT SELLABLE'
         print(f"Harvested by {melon.harvester} from Field {melon.field} ({sellability})")
 
-get_sellability_report(make_melons())
+#get_sellability_report(make_melons())
+make_melon_types()
